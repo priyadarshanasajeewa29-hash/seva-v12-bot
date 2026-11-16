@@ -1,0 +1,10 @@
+{
+  "name": "seva-v12-bot",
+  "version": "1.0.0",
+  "description": "Seva V12 Crypto Signal Bot",
+  "main": "Bot.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node Bot.js"
+  }
+}
