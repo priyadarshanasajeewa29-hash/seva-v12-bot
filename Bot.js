@@ -161,10 +161,10 @@ async function brain(coin, btcTrend, btcShock){
 async function main(){
   // BTC Trend
   let k1h=await fetchKlines('BTCUSDT','1h',60);
-  let c1=k1h.slice(0,-1).map(x=>parseFloat(x[4]));
+  let c1=Array.isArray(k1h)?k1h.slice(0,-1).map(x=>parseFloat(x[4])):[];
   let btcTrend=calcEMA(c1,20)>calcEMA(c1,50)?'UP':'DOWN';
   let k15=await fetchKlines('BTCUSDT','15m',10);
-  let c15=k15.map(x=>parseFloat(x[4]));
+  let c15=Array.isArray(k15)?k15.map(x=>parseFloat(x[4])):[];
   let move=(c15[c15.length-1]-c15[c15.length-5])/c15[c15.length-5];
   let btcShock=move<-0.015?'DUMP':move>0.015?'PUMP':false;
 
